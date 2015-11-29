@@ -1,4 +1,4 @@
-package com.springapp.orm.entity;
+package com.springapp.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;

@@ -1,4 +1,4 @@
-package com.springapp.orm.entity;
+package com.springapp.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -19,6 +19,22 @@ public class Dish implements Serializable {
 
     @Column(name = "name")
     private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "dishTypeID")
+    private DishType type;
+
+    @Column(name = "price")
+    private float price;
+
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
 
     public int getID() {
         return ID;
@@ -44,5 +60,11 @@ public class Dish implements Serializable {
         this.name = name;
     }
 
-    //TODO: create hierarchy of DishTypes + create 1:n relation for Dish/DishType
+    public DishType getType() {
+        return type;
+    }
+
+    public void setType(DishType type) {
+        this.type = type;
+    }
 }

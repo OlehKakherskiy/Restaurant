@@ -1,4 +1,4 @@
-package com.springapp.orm.entity;
+package com.springapp.entity.enums;
 
 /**
  * Created by oleg on 28.11.15.

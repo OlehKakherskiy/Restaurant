@@ -1,4 +1,6 @@
-package com.springapp.orm.entity;
+package com.springapp.entity;
+
+import com.springapp.entity.enums.UserType;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -25,6 +27,7 @@ public class User implements Serializable {
     private String email;
 
     @Column(name = "userType")
+    @Enumerated(EnumType.STRING)
     private UserType userType;
 
     @Column(name = "password")
@@ -33,10 +36,14 @@ public class User implements Serializable {
     @Column(name = "workMark", nullable = true)
     private short workMark;
 
-    @OneToMany(mappedBy = "mobileNumber",cascade = CascadeType.ALL,orphanRemoval = true)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<MobileNumber> mobileNumbers;
 
-    //TODO: add order set, order execution set,
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Order> orders;
+
+    @OneToMany(mappedBy = "waiter", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Order> waiterOrders;
 
     public int getID() {
         return ID;
@@ -100,5 +107,21 @@ public class User implements Serializable {
 
     public Set<MobileNumber> getMobileNumbers() {
         return mobileNumbers;
+    }
+
+    public Set<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
+    }
+
+    public Set<Order> getWaiterOrders() {
+        return waiterOrders;
+    }
+
+    public void setWaiterOrders(Set<Order> waiterOrders) {
+        this.waiterOrders = waiterOrders;
     }
 }

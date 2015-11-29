@@ -1,4 +1,4 @@
-package com.springapp.orm.entity;
+package com.springapp.entity;
 
 import javax.persistence.*;
 
@@ -7,7 +7,6 @@ import javax.persistence.*;
  */
 @Entity
 public class MobileNumber {
-
 
     @Id
     @Column(name = "mobileNumberID")
