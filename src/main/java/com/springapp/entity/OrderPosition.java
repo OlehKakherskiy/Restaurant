@@ -10,6 +10,7 @@ public class OrderPosition {
 
     @Id
     @Column(name = "orderPositionID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int ID;
 
     @ManyToOne(optional = false)

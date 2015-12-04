@@ -10,7 +10,7 @@ import java.util.Set;
 public class DishType {
 
     @Id
-    @Column(name = "ID")
+    @Column(name = "DishTypeID")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int ID;
 
@@ -20,7 +20,7 @@ public class DishType {
             inverseJoinColumns = @JoinColumn(name = "subtypeID"))
     private Set<DishType> subtypes;
 
-    @OneToMany(mappedBy = "Dish", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "type", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Dish> dishes;
 
     public int getID() {

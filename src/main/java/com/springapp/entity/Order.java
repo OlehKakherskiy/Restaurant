@@ -10,6 +10,7 @@ import java.util.Set;
  * Created by oleg on 28.11.15.
  */
 @Entity
+@Table(name = "Bill")
 public class Order implements Serializable {
 
     @Id

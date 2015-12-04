@@ -45,6 +45,64 @@ public class User implements Serializable {
     @OneToMany(mappedBy = "waiter", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Order> waiterOrders;
 
+    public User(int ID, String name, String surname, String email, UserType userType, String password,
+                short workMark) {
+        this.ID = ID;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.userType = userType;
+        this.password = password;
+        this.workMark = workMark;
+    }
+
+    public User(String name, String surname, String email, UserType userType, String password,
+                short workMark) {
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.userType = userType;
+        this.password = password;
+        this.workMark = workMark;
+    }
+
+    public User() {
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "workMark=" + workMark +
+                ", password='" + password + '\'' +
+                ", userType=" + userType +
+                ", email='" + email + '\'' +
+                ", surname='" + surname + '\'' +
+                ", name='" + name + '\'' +
+                ", ID=" + ID +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+
+        if (ID != user.ID) return false;
+        if (workMark != user.workMark) return false;
+        if (!name.equals(user.name)) return false;
+        if (!surname.equals(user.surname)) return false;
+        if (!email.equals(user.email)) return false;
+        if (userType != user.userType) return false;
+        if (!password.equals(user.password)) return false;
+        if (mobileNumbers != null ? !mobileNumbers.equals(user.mobileNumbers) : user.mobileNumbers != null)
+            return false;
+        if (orders != null ? !orders.equals(user.orders) : user.orders != null) return false;
+        return !(waiterOrders != null ? !waiterOrders.equals(user.waiterOrders) : user.waiterOrders != null);
+
+    }
+
     public int getID() {
         return ID;
     }

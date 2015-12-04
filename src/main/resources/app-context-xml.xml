@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util  http://www.springframework.org/schema/util/spring-util.xsd
+       http://www.springframework.org/schema/mvc  http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    <mvc:annotation-driven/>
+    <!--<context:annotation-config/>-->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
+          p:dataSource-ref="dataSource"
+          p:packagesToScan="com.springapp.entity"
+          p:hibernateProperties-ref="hibernateProperties"/>
+
+    <util:properties id="hibernateProperties">
+        <prop key="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</prop>
+        <prop key="hibernate.show_sql">true</prop>
+    </util:properties>
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager"
+          p:sessionFactory-ref="sessionFactory"/>
+
+    <bean id="dishDao" class="com.springapp.dao.daoImpl.DishDaoImpl"/>
+
+    <bean id="dishTypeDao" class="com.springapp.dao.daoImpl.DishTypeDaoImpl"/>
+
+    <bean id="userDao" class="com.springapp.dao.daoImpl.UserDaoImpl"/>
+
+    <bean id="dinnerTableDao" class="com.springapp.dao.daoImpl.DinnerTableDaoImpl"/>
+
+    <bean id="orderDao" class="com.springapp.dao.daoImpl.OrderDaoImpl"/>
+
+    <bean id="orderPositionDao" class="com.springapp.dao.daoImpl.OrderPositionDaoImpl"/>
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+          p:driverClassName="com.mysql.jdbc.Driver"
+          p:url="localhost:3030"
+          p:username="root"
+          p:password="11051995"/>
+
+    <!--<beans profile="deploy">-->
+        <!-- -->
+    <!--</beans>-->
+<!---->
+    <!--<beans profile="test">-->
+        <!--&lt;!&ndash;<context:component-scan base-package="com.springapp.dao.daoImpl"/>&ndash;&gt;-->
+        <!--<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"-->
+              <!--p:driverClassName="com.mysql.jdbc.Driver"-->
+              <!--p:url="jdbc:mysql://localhost:3306/restaurant"-->
+              <!--p:username="root"-->
+              <!--p:password="11051995"/>-->
+
+        <!--<bean id="databaseTester" class="org.dbunit.DataSourceDatabaseTester">-->
+            <!--<constructor-arg ref="dataSource"/>-->
+        <!--</bean>-->
+    <!--</beans>-->
+</beans>

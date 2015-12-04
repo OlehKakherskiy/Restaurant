@@ -20,6 +20,18 @@ public class MobileNumber {
     @JoinColumn(name = "UserID")
     private User user;
 
+    public MobileNumber() {
+    }
+
+    public MobileNumber(String mobileNumber, User user) {
+        this.mobileNumber = mobileNumber;
+        this.user = user;
+    }
+
+    public MobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
+    }
+
     public int getID() {
         return ID;
     }

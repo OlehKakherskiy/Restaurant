@@ -20,7 +20,7 @@ public class Dish implements Serializable {
     @Column(name = "name")
     private String name;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     @JoinColumn(name = "dishTypeID")
     private DishType type;
 
