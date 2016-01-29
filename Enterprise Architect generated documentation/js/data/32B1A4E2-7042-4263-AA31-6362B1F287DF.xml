@@ -1,0 +1,10 @@
+tocTab[tocTab.length] = new Array("0.2.2:1", "", "Actors", "EARoot/EA2/EA2/EA133.htm", "180.png", "2", "0", "", "Use Case diagram0","{A030DE98-7238-4fe2-9086-6F5823E65B6C}");
+tocTab[tocTab.length] = new Array("0.2.2:2", "", "Адміністратор", "EARoot/EA2/EA2/EA136.htm", "6.png", "E17", "0", "", "Actor0","{7579F63A-D889-41d0-B3E5-79FE0AA1E032}");
+tocTab[tocTab.length] = new Array("0.2.2:3", "", "Авторизований клієнт", "EARoot/EA2/EA2/EA137.htm", "6.png", "E112", "0", "", "Actor0","{41AD9DCE-8162-4f5b-AD5C-4076FD343385}");
+tocTab[tocTab.length] = new Array("0.2.2:4", "", "Зареєстрований користувач", "EARoot/EA2/EA2/EA138.htm", "6.png", "E113", "0", "", "Actor0","{58E63B99-F8D9-47a0-A34C-A478F574F6F9}");
+tocTab[tocTab.length] = new Array("0.2.2:5", "", "Замовник", "EARoot/EA2/EA2/EA139.htm", "6.png", "E16", "0", "", "Actor0","{D20E159F-C794-487f-AC8C-4131D082C40A}");
+tocTab[tocTab.length] = new Array("0.2.2:6", "", "Кухар", "EARoot/EA2/EA2/EA140.htm", "6.png", "E144", "0", "", "Actor0","{E60ED576-A97C-4145-8BA6-71C188A5C887}");
+tocTab[tocTab.length] = new Array("0.2.2:7", "", "Незареєстрований користувач", "EARoot/EA2/EA2/EA141.htm", "6.png", "E37", "0", "", "Actor0","{3A4BB5E7-10FF-4790-9056-64EA39FB1163}");
+tocTab[tocTab.length] = new Array("0.2.2:8", "", "Офіціант", "EARoot/EA2/EA2/EA142.htm", "6.png", "E19", "0", "", "Actor0","{DD833E45-E638-456a-AB84-651268EF4EE4}");
+tocTab[tocTab.length] = new Array("0.2.2:9", "", "USER", "EARoot/EA2/EA2/EA143.htm", "6.png", "E10", "0", "", "Actor0","{CAF006D2-2CA8-4cda-B0BB-7EE428B8FF78}");
+tocTab[tocTab.length] = new Array("0.2.2:10", "", "Шеф - кухар", "EARoot/EA2/EA2/EA144.htm", "6.png", "E18", "0", "", "Actor0","{562C80EB-EB47-4341-8DD6-53C6CF6FBC5C}");

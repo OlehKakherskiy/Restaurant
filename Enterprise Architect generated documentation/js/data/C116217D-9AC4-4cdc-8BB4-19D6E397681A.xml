@@ -1,0 +1,5 @@
+tocTab[tocTab.length] = new Array("0.2.5:1", "", "usecases зарег. пользователя", "EARoot/EA2/EA5/EA208.htm", "180.png", "20", "0", "", "Use Case diagram0","{079410E3-DEE5-4e65-88CA-A610E553163B}");
+tocTab[tocTab.length] = new Array("0.2.5:2", "", "ID_01 Зареєструватись", "EARoot/EA2/EA5/EA212.htm", "7.png", "E20", "0", "", "UseCase0","{5BA8560A-A149-4867-8785-A275CEE4B7AA}");
+tocTab[tocTab.length] = new Array("0.2.5:3", "", "ID_02 Авторизуватись", "EARoot/EA2/EA5/EA213.htm", "7.png", "E22", "0", "", "UseCase0","{C7849831-2D54-4bee-AB77-2B514B39825C}");
+tocTab[tocTab.length] = new Array("0.2.5:4", "", "ID_03 Вийти", "EARoot/EA2/EA5/EA214.htm", "7.png", "E23", "0", "", "UseCase0","{F4FEFC41-600D-408d-88A0-67D450317934}");
+tocTab[tocTab.length] = new Array("0.2.5:5", "", "ID_07 Відновити пароль", "EARoot/EA2/EA5/EA215.htm", "7.png", "E21", "0", "", "UseCase0","{4FC63B7A-CF29-48e6-AB87-37FE2D2FA2D0}");

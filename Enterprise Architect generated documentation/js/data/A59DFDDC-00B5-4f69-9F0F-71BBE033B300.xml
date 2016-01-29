@@ -1,0 +1,6 @@
+tocTab[tocTab.length] = new Array("0.2:1", "", "Use Case Model", "EARoot/EA2/EA79.htm", "180.png", "1", "0", "", "Use Case diagram0","{65AA8245-6F16-45bc-B152-F06C3E970247}");
+tocTab[tocTab.length] = new Array("0.2.1", "1", "Админка", "EARoot/EA2/EA1/EA99.htm", "4.png", "", "", "{EC445043-BB95-4817-B39A-2D6E10B8D16D}", "Package");
+tocTab[tocTab.length] = new Array("0.2.2", "1", "Actors", "EARoot/EA2/EA2/EA135.htm", "4.png", "", "", "{32B1A4E2-7042-4263-AA31-6362B1F287DF}", "Package");
+tocTab[tocTab.length] = new Array("0.2.3", "1", "Прецеденти робочого персоналу", "EARoot/EA2/EA3/EA151.htm", "4.png", "", "", "{9DC2627D-9154-4d11-B503-49F5F5D414EC}", "Package");
+tocTab[tocTab.length] = new Array("0.2.4", "1", "Primary Use Cases", "EARoot/EA2/EA4/EA179.htm", "4.png", "", "", "{7C1A27E1-FB07-4f44-B20B-EDDB8464BB7F}", "Package");
+tocTab[tocTab.length] = new Array("0.2.5", "1", "usecases зарег. пользователя", "EARoot/EA2/EA5/EA210.htm", "4.png", "", "", "{C116217D-9AC4-4cdc-8BB4-19D6E397681A}", "Package");

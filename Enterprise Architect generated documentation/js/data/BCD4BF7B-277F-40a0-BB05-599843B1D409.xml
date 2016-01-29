@@ -1,0 +1,9 @@
+tocTab[tocTab.length] = new Array("0.4:1", "", "Deployment Model", "EARoot/EA4/EA247.htm", "179.png", "80", "0", "", "Deployment diagram0","{EA4A204E-329E-4254-BCEF-B2943336F5DD}");
+tocTab[tocTab.length] = new Array("0.4:2", "", "Application Server Machine", "EARoot/EA4/EA250.htm", "9.png", "E448", "0", "", "Node0","{51B660AE-89C5-45ef-B4C0-470EB1A8C3D5}");
+tocTab[tocTab.length] = new Array("0.4:3", "", "Client machine", "EARoot/EA4/EA251.htm", "9.png", "E446", "0", "", "Node0","{F7D9A74E-A3BE-4e3b-AAB5-59F31187AF19}");
+tocTab[tocTab.length] = new Array("0.4:4", "", "DBServerMachine", "EARoot/EA4/EA252.htm", "9.png", "E453", "0", "", "Node0","{E8AF0A4E-4882-405f-A5D7-74C69D2131F9}");
+tocTab[tocTab.length] = new Array("0.4:5", "", "Web browser", "EARoot/EA4/EA253.htm", "192.png", "E447", "E446", "", "ExecutionEnvironment0","{21154D9D-8D51-490e-8CA0-56C04FA60A79}");
+tocTab[tocTab.length] = new Array("0.4:6", "", "Tomcat", "EARoot/EA4/EA254.htm", "192.png", "E449", "E448", "", "ExecutionEnvironment0","{E44C9610-0CB8-459e-9D61-56D00A906B07}");
+tocTab[tocTab.length] = new Array("0.4:8", "", "MySQL InnoDB", "EARoot/EA4/EA256.htm", "192.png", "E454", "E453", "", "ExecutionEnvironment0","{ACD5A96D-E1B9-45cf-954E-FA23DF942C22}");
+tocTab[tocTab.length] = new Array("0.4:7", "", "ElectronicRestaurant.war", "EARoot/EA4/EA255.htm", "82.png", "E452", "E449", "", "Artifact0","{55B52324-D66F-4c67-A870-4AABB43C7035}");
+tocTab[tocTab.length] = new Array("0.4:9", "", "RestaurantSchema", "EARoot/EA4/EA257.htm", "82.png", "E455", "E454", "", "Artifact0","{CD6810CA-8AC7-4afb-84A1-FFAF782870CA}");

@@ -1,0 +1,485 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Class Model::DinnerTableDao</title>
+<link href="../../css/ea.css" rel="stylesheet" type="text/css" />
+<script>
+function initPage(src) {	
+	if(parent==this&&(this.location+"").indexOf('EARoot')!=-1)
+		document.location=(this.location+"").substring(0,(this.location+"").indexOf('EARoot'))+"index"+(this.location+"").substring((this.location+"").lastIndexOf('.'))+"?goto="+((this.location+"").substring((this.location+"").indexOf('EARoot')+7,(this.location+"").lastIndexOf('.')).replace(/\//g,':').replace(/EA/g,""));
+	else
+		parent.initPage(src);
+}
+
+function nameClassifier(name, separator)
+{
+  var str = name;
+  var classifierName;
+  var node = document.getElementById('name_classifier');
+  if(node != null)
+  {
+    classifierName = node.innerHTML;
+  }
+  if(classifierName != "")
+  {
+   str += separator + classifierName;
+  }
+  
+  return str;
+}
+</script>
+</head>
+<body onload="initPage(this);" class="Content">
+<div class="pageHeader"></div>
+<div class="PageBody">
+	<div id="name_classifier" style="display: none;"></div>
+	<span class="ObjectTitle"><script type="text/javascript">document.write(nameClassifier("DinnerTableDao", " : "))</script>  : Public abstract  Interface</span>
+	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Created:</td>
+			<td width="85%" class="ObjectDetailsValue">07.12.2015 6:26:29</td>
+		</tr>
+		<tr>
+			<td class="ObjectDetailsTopic">Modified:</td>
+			<td class="ObjectDetailsValue">07.12.2015 6:36:55</td>
+		</tr>
+		<tr style="height: 10px"><td colspan="2"></td></tr>
+		<tr>
+			<td class="ObjectDetailsTopic"><img src="../../images/plus03.gif" align="absmiddle" id="proj" onclick="parent.toggleData(this.id)" />Project:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr id="proj00" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
+			<td class="ObjectDetailsValue">Oleh Kakherskyi, IP-31, FICT, NTUU "KPI", olehkakherskiy@gmail.com</td>
+		</tr>
+		<tr id="proj01" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
+			<td class="ObjectDetailsValue">1.0</td>
+		</tr>
+		<tr id="proj02" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Phase:</td>
+			<td class="ObjectDetailsValue">1.0</td>
+		</tr>
+		<tr id="proj03" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Status:</td>
+			<td class="ObjectDetailsValue">Proposed</td>
+		</tr>
+		<tr id="proj04" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Complexity:</td>
+			<td class="ObjectDetailsValue">Easy</td>
+		</tr>
+		<tr id="proj05" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Difficulty:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr id="proj06" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Priority:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr id="proj05" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Multiplicity:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr>
+			<td class="ObjectDetailsTopic"><img src="../../images/plus03.gif" align="absmiddle" id="adv" onclick="parent.toggleData(this.id)" />Advanced:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr id="adv00" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
+			<td class="ObjectDetailsValue">{CAC57F30-3E9A-4d38-9034-9CAE623D47C6}</td>
+		</tr>
+		<tr id="adv01" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
+			<td class="ObjectDetailsValue"><a href="EA216.htm">Class Model</a></td>
+		</tr>
+	</table>
+	<div class="ObjectDetailsNotes">&#1056;&#8224;&#1056;&#1029;&#1057;&#8218;&#1056;µ&#1057;&#1026;&#1057;&#8222;&#1056;µ&#1056;&#8470;&#1057;&#1027; &#1057;&#1026;&#1056;µ&#1056;°&#1056;»&#1057;&#8211;&#1056;·&#1056;°&#1057;&#8224;&#1057;&#8211;&#1057;&#8212; ORM &#1056;&#1169;&#1056;»&#1057;&#1039; &#1056;&#1109;&#1056;±&#39;&#1057;&#8221;&#1056;&#1108;&#1057;&#8218;&#1057;&#1107; {@link DinnerTable}. </div>
+
+	<div class="TableGroup" id="TableGroup">
+		<ul class="ItemTitle">
+			<li onClick="parent.toggleItem('Operations');" id="OperationsTitle">Operations</li>
+			<li onClick="parent.toggleItem('AssociationsTo');" id="AssociationsToTitle">Associations To</li>
+			<li onClick="parent.toggleItem('Links');" id="LinksTitle">Other Links</li>
+		</ul>
+<div class="ItemBody" id="OperationsTable">
+	<table border="0" cellspacing="0" cellpadding="0" class="Table">
+		<tr>
+			<td width="100%" class="TableHeading">Operation</td>
+		</tr>
+						<tr>
+				<td width="100%" class="TableRow">
+					<i>Public</i><br />
+					<strong>insertDinnerTable</strong>(					<a href="#" onclick="parent.toggleData('param{6CFF0249-17DE-4541-A086-C61A2D277839}')" style="text-decoration: none; color: #000000;"><img src="../../images/plus03.gif" align="absmiddle" id="param{6CFF0249-17DE-4541-A086-C61A2D277839}" border="0" />table: <a href="EA219.htm">DinnerTable</a></a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{6CFF0249-17DE-4541-A086-C61A2D277839}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{6CFF0249-17DE-4541-A086-C61A2D277839}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{6CFF0249-17DE-4541-A086-C61A2D277839}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{6CFF0249-17DE-4541-A086-C61A2D277839}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">РѕР±&#39;С”РєС‚ {@link DinnerTable},  СЏРєРёР№ РґРѕРґР°С”С‚СЊСЃСЏ РІ СЃРёСЃС‚РµРјСѓ</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageOperations437" onclick="parent.toggleDiv('detailsDIVOperations437','DetailsImageOperations437')" />Details:
+						<div id="detailsDIVOperations437" class="DetailsDiv" >
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					
+					
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			&#1056;&#8217;&#1056;&#1105;&#1056;&#1108;&#1056;&#1109;&#1056;&#1029;&#1057;&#1107;&#1057;&#8221; &#1056;&#1169;&#1056;&#1109;&#1056;&#1169;&#1056;°&#1056;&#1030;&#1056;°&#1056;&#1029;&#1056;&#1029;&#1057;&#1039; &#1057;&#1027;&#1057;&#8218;&#1056;&#1109;&#1056;»&#1057;&#1107; &#1056;&#1030; &#1057;&#1027;&#1056;&#1105;&#1057;&#1027;&#1057;&#8218;&#1056;µ&#1056;&#1112;&#1057;&#1107; 
+		</td>
+	</tr>
+</table></div>
+
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td width="100%" class="TableRow">
+					<i>Public</i><br />
+					<strong>removeDinnerTable</strong>(					<a href="#" onclick="parent.toggleData('param{7F37CF8C-B8C3-4490-85ED-9F350B2D80DD}')" style="text-decoration: none; color: #000000;"><img src="../../images/plus03.gif" align="absmiddle" id="param{7F37CF8C-B8C3-4490-85ED-9F350B2D80DD}" border="0" />table: <a href="EA219.htm">DinnerTable</a></a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{7F37CF8C-B8C3-4490-85ED-9F350B2D80DD}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{7F37CF8C-B8C3-4490-85ED-9F350B2D80DD}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{7F37CF8C-B8C3-4490-85ED-9F350B2D80DD}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{7F37CF8C-B8C3-4490-85ED-9F350B2D80DD}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">РѕР±&#39;С”РєС‚ {@link DinnerTable},  СЏРєРёР№ РІРёРґР°Р»СЏС”С‚СЊСЃСЏ С–Р· СЃРёСЃС‚РµРјРё</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageOperations438" onclick="parent.toggleDiv('detailsDIVOperations438','DetailsImageOperations438')" />Details:
+						<div id="detailsDIVOperations438" class="DetailsDiv" >
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					
+					
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			&#1056;&#8217;&#1056;&#1105;&#1056;&#1108;&#1056;&#1109;&#1056;&#1029;&#1057;&#1107;&#1057;&#8221; &#1056;&#1169;&#1056;&#1109;&#1056;&#1169;&#1056;°&#1056;&#1030;&#1056;°&#1056;&#1029;&#1056;&#1029;&#1057;&#1039; &#1057;&#1027;&#1057;&#8218;&#1056;&#1109;&#1056;»&#1057;&#1107; &#1056;&#1030; &#1057;&#1027;&#1056;&#1105;&#1057;&#1027;&#1057;&#8218;&#1056;µ&#1056;&#1112;&#1057;&#1107; 
+		</td>
+	</tr>
+</table></div>
+
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td width="100%" class="TableRow">
+					<i>Public</i><br />
+					<strong>selectAllTableWithReservationStatus</strong>(					<a href="#" onclick="parent.toggleData('param{45BF253E-E33A-4ea9-9251-9B5E4B5F1D1B}')" style="text-decoration: none; color: #000000;"><img src="../../images/plus03.gif" align="absmiddle" id="param{45BF253E-E33A-4ea9-9251-9B5E4B5F1D1B}" border="0" />definedTime: LocalDateTime</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{45BF253E-E33A-4ea9-9251-9B5E4B5F1D1B}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{45BF253E-E33A-4ea9-9251-9B5E4B5F1D1B}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{45BF253E-E33A-4ea9-9251-9B5E4B5F1D1B}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{45BF253E-E33A-4ea9-9251-9B5E4B5F1D1B}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">РјРѕРјРµРЅС‚ С‡Р°СЃСѓ,  РґР»СЏ СЏРєРѕРіРѕ РїРѕРІРёРЅРЅС– Р±СѓС‚Рё Р·С‡РёС‚Р°РЅС– РґР°РЅС– РїСЂРѕ СЃС‚Р°С‚СѓСЃ Р±СЂРѕРЅСЋРІР°РЅРЅСЏ СЃС‚РѕР»РёРєС–РІ</div>
+</td>
+						</tr>
+					</table>
+):Set&lt;DinnerTable&gt;
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageOperations439" onclick="parent.toggleDiv('detailsDIVOperations439','DetailsImageOperations439')" />Details:
+						<div id="detailsDIVOperations439" class="DetailsDiv" >
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					
+					
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			&#1056;&#8212;&#1057;&#8225;&#1056;&#1105;&#1057;&#8218;&#1057;&#1107;&#1057;&#8221; &#1056;&#1169;&#1056;°&#1056;&#1029;&#1057;&#8211; &#1056;&#1111;&#1057;&#1026;&#1056;&#1109; &#1057;&#1027;&#1057;&#8218;&#1056;°&#1057;&#8218;&#1057;&#1107;&#1057;&#1027; &#1056;±&#1057;&#1026;&#1056;&#1109;&#1056;&#1029;&#1057;&#1035;&#1056;&#1030;&#1056;°&#1056;&#1029;&#1056;&#1029;&#1057;&#1039; &#1056;&#1030;&#1057;&#1027;&#1057;&#8211;&#1057;&#8230; &#1057;&#1027;&#1057;&#8218;&#1056;&#1109;&#1056;»&#1056;&#1105;&#1056;&#1108;&#1057;&#8211;&#1056;&#1030; &#1057;&#1107; &#1057;&#1027;&#1056;&#1105;&#1057;&#1027;&#1057;&#8218;&#1056;µ&#1056;&#1112;&#1057;&#8211; &#1056;&#1030; &#1056;&#1108;&#1056;&#1109;&#1056;&#1029;&#1056;&#1108;&#1057;&#1026;&#1056;µ&#1057;&#8218;&#1056;&#1029;&#1056;&#1105;&#1056;&#8470; &#1056;&#1112;&#1056;&#1109;&#1056;&#1112;&#1056;µ&#1056;&#1029;&#1057;&#8218; &#1057;&#8225;&#1056;°&#1057;&#1027;&#1057;&#1107;. &#1056;&#8217; &#1056;&#1109;&#1056;±&#39;&#1057;&#8221;&#1056;&#1108;&#1057;&#8218;&#1057;&#8211; {@link DinnerTable} &#1056;&#1112;&#1056;°&#1057;&#1035;&#1057;&#8218;&#1057;&#1034; &#1056;±&#1057;&#1107;&#1057;&#8218;&#1056;&#1105; &#1056;·&#1056;°&#1056;&#1111;&#1056;&#1109;&#1056;&#1030;&#1056;&#1029;&#1056;µ&#1056;&#1029;&#1057;&#8211; &#1056;&#1111;&#1056;&#1109;&#1056;»&#1057;&#1039; {@link DinnerTable#ID}, {@link DinnerTable#seatsNumber}, {@link DinnerTable#reservations} &#1056;&#1112;&#1056;°&#1057;&#8221; &#1056;&#1112;&#1056;°&#1057;&#8218;&#1056;&#1105; &#1056;&#1109;&#1056;±&#39;&#1057;&#8221;&#1056;&#1108;&#1057;&#8218; {@link com.springapp.entity.TableReservation} &#1056;· &#1056;·&#1056;°&#1056;&#1111;&#1056;&#1109;&#1056;&#1030;&#1056;&#1029;&#1056;µ&#1056;&#1029;&#1056;&#1105;&#1056;&#1112;&#1056;&#1105; &#1056;&#1169;&#1056;°&#1056;&#1029;&#1056;&#1105;&#1056;&#1112;&#1056;&#1105; &#1056;&#1029;&#1056;° &#1056;&#1112;&#1056;&#1109;&#1056;&#1112;&#1056;µ&#1056;&#1029;&#1057;&#8218; &#1057;&#8225;&#1056;°&#1057;&#1027;&#1057;&#1107;, &#1056;&#1030;&#1056;&#1108;&#1056;°&#1056;·&#1056;°&#1056;&#1029;&#1056;&#1109;&#1056;&#1112;&#1057;&#1107; &#1057;&#1107; &#1056;&#1030;&#1057;&#8230;&#1057;&#8211;&#1056;&#1169;&#1056;&#1029;&#1056;&#1109;&#1056;&#1112;&#1057;&#1107; &#1056;&#1111;&#1056;°&#1057;&#1026;&#1056;°&#1056;&#1112;&#1056;µ&#1057;&#8218;&#1057;&#1026;&#1057;&#8211;. #lt;br /#gt;#lt;/p#gt;#lt;p#gt;@return &#1056;&#1112;&#1056;&#1029;&#1056;&#1109;&#1056;¶&#1056;&#1105;&#1056;&#1029;&#1056;° &#1057;&#1027;&#1057;&#8218;&#1056;&#1109;&#1056;»&#1056;&#1105;&#1056;&#1108;&#1057;&#8211;&#1056;&#1030; &#1057;&#1027;&#1056;&#1105;&#1057;&#1027;&#1057;&#8218;&#1056;µ&#1056;&#1112;&#1056;&#1105; &#1056;·&#1057;&#8211; &#1057;&#1027;&#1057;&#8218;&#1056;°&#1057;&#8218;&#1057;&#1107;&#1057;&#1027;&#1056;°&#1056;&#1112;&#1056;&#1105; &#1056;±&#1057;&#1026;&#1056;&#1109;&#1056;&#1029;&#1057;&#1035;&#1056;&#1030;&#1056;°&#1056;&#1029;&#1056;&#1029;&#1057;&#1039; &#1056;&#1029;&#1056;° &#1056;&#1111;&#1056;µ&#1056;&#1030;&#1056;&#1029;&#1056;&#1105;&#1056;&#8470; &#1056;&#1112;&#1056;&#1109;&#1056;&#1112;&#1056;µ&#1056;&#1029;&#1057;&#8218; &#1057;&#8225;&#1056;°&#1057;&#1027;&#1057;&#1107;#lt;br /#gt;#lt;/p#gt;
+		</td>
+	</tr>
+</table></div>
+
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td width="100%" class="TableRow">
+					<i>Public</i><br />
+					<strong>selectWithDetailedReservation</strong>(					<a href="#" onclick="parent.toggleData('param{E82EC20D-7E33-44a7-838A-EAF2C38687B5}')" style="text-decoration: none; color: #000000;"><img src="../../images/plus03.gif" align="absmiddle" id="param{E82EC20D-7E33-44a7-838A-EAF2C38687B5}" border="0" />ID: int</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{E82EC20D-7E33-44a7-838A-EAF2C38687B5}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{E82EC20D-7E33-44a7-838A-EAF2C38687B5}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{E82EC20D-7E33-44a7-838A-EAF2C38687B5}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{E82EC20D-7E33-44a7-838A-EAF2C38687B5}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">С–РґРµРЅС‚РёС„С–РєР°С‚РѕСЂ СЃС‚РѕР»РёРєСѓ</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{B9C3750B-294A-452a-88E0-7E0A0777E9AB}')" style="text-decoration: none; color: #000000;"><img src="../../images/plus03.gif" align="absmiddle" id="param{B9C3750B-294A-452a-88E0-7E0A0777E9AB}" border="0" />startTime: LocalDateTime</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{B9C3750B-294A-452a-88E0-7E0A0777E9AB}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{B9C3750B-294A-452a-88E0-7E0A0777E9AB}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{B9C3750B-294A-452a-88E0-7E0A0777E9AB}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{B9C3750B-294A-452a-88E0-7E0A0777E9AB}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">РїРѕС‡Р°С‚РєРѕРІРёР№ РјРѕРјРµРЅС‚ С‡Р°СЃСѓ РїРѕС€СѓРєСѓ СЃС‚Р°С‚СѓСЃС–РІ Р±СЂРѕРЅСЋРІР°РЅРЅСЏ</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{8E2426E5-4509-4a20-A728-11F4B6EB9F88}')" style="text-decoration: none; color: #000000;"><img src="../../images/plus03.gif" align="absmiddle" id="param{8E2426E5-4509-4a20-A728-11F4B6EB9F88}" border="0" />endTime: LocalDateTime</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{8E2426E5-4509-4a20-A728-11F4B6EB9F88}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{8E2426E5-4509-4a20-A728-11F4B6EB9F88}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{8E2426E5-4509-4a20-A728-11F4B6EB9F88}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{8E2426E5-4509-4a20-A728-11F4B6EB9F88}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">РєС–РЅС†РµРІРёР№ РјРѕРјРµРЅС‚ С‡Р°СЃСѓ РїРѕС€СѓРєСѓ СЃС‚Р°С‚СѓСЃС–РІ Р±СЂРѕРЅСЋРІР°РЅРЅСЏ</div>
+</td>
+						</tr>
+					</table>
+):<a href="EA219.htm">DinnerTable</a>
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageOperations440" onclick="parent.toggleDiv('detailsDIVOperations440','DetailsImageOperations440')" />Details:
+						<div id="detailsDIVOperations440" class="DetailsDiv" >
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					
+					
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			&#1056;&#8212;&#1057;&#8225;&#1056;&#1105;&#1057;&#8218;&#1057;&#1107;&#1057;&#8221; &#1056;&#1169;&#1056;°&#1056;&#1029;&#1057;&#8211; &#1056;±&#1057;&#1026;&#1056;&#1109;&#1056;&#1029;&#1057;&#1035;&#1056;&#1030;&#1056;°&#1056;&#1029;&#1056;&#1029;&#1057;&#1039; &#1057;&#1027;&#1057;&#8218;&#1056;&#1109;&#1056;»&#1056;&#1105;&#1056;&#1108;&#1057;&#1107; &#1056;&#1030; &#1056;&#1111;&#1056;µ&#1056;&#1030;&#1056;&#1029;&#1056;&#1105;&#1056;&#8470; &#1056;&#1111;&#1057;&#1026;&#1056;&#1109;&#1056;&#1112;&#1057;&#8211;&#1056;¶&#1056;&#1109;&#1056;&#1108; &#1057;&#8225;&#1056;°&#1057;&#1027;&#1057;&#1107; #lt;br /#gt;#lt;/p#gt;#lt;p#gt;@return &#1056;&#1115;&#1056;±&#39;&#1057;&#8221;&#1056;&#1108;&#1057;&#8218; &#1057;&#1027;&#1057;&#8218;&#1056;&#1109;&#1056;»&#1056;&#1105;&#1056;&#1108;&#1057;&#1107; &#1056;·&#1057;&#8211; &#1057;&#1027;&#1057;&#8218;&#1056;°&#1057;&#8218;&#1057;&#1107;&#1057;&#1027;&#1056;°&#1056;&#1112;&#1056;&#1105; &#1056;±&#1057;&#1026;&#1056;&#1109;&#1056;&#1029;&#1057;&#1035;&#1056;&#1030;&#1056;°&#1056;&#1029;&#1056;&#1029;&#1057;&#1039; &#1056;&#1030; &#1056;&#1111;&#1057;&#1026;&#1056;&#1109;&#1056;&#1112;&#1057;&#8211;&#1056;¶&#1056;&#1109;&#1056;&#1108; &#1057;&#8225;&#1056;°&#1057;&#1027;&#1057;&#1107;, &#1056;&#1111;&#1056;µ&#1057;&#1026;&#1056;µ&#1056;&#1169;&#1056;°&#1056;&#1029;&#1056;&#1105;&#1056;&#8470; &#1056;&#1030; &#1057;&#1039;&#1056;&#1108;&#1056;&#1109;&#1057;&#1027;&#1057;&#8218;&#1057;&#8211; &#1056;&#1030;&#1057;&#8230;&#1057;&#8211;&#1056;&#1169;&#1056;&#1029;&#1056;&#1105;&#1057;&#8230; &#1056;&#1111;&#1056;°&#1057;&#1026;&#1056;°&#1056;&#1112;&#1056;µ&#1057;&#8218;&#1057;&#1026;&#1057;&#8211;&#1056;&#1030;#lt;br /#gt;#lt;/p#gt;
+		</td>
+	</tr>
+</table></div>
+
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td width="100%" class="TableRow">
+					<i>Public</i><br />
+					<strong>updateDinnerTable</strong>(					<a href="#" onclick="parent.toggleData('param{0E1571DE-522A-4090-8480-5D68CD50CFB1}')" style="text-decoration: none; color: #000000;"><img src="../../images/plus03.gif" align="absmiddle" id="param{0E1571DE-522A-4090-8480-5D68CD50CFB1}" border="0" />table: <a href="EA219.htm">DinnerTable</a></a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{0E1571DE-522A-4090-8480-5D68CD50CFB1}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{0E1571DE-522A-4090-8480-5D68CD50CFB1}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{0E1571DE-522A-4090-8480-5D68CD50CFB1}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{0E1571DE-522A-4090-8480-5D68CD50CFB1}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">РѕР±&#39;С”РєС‚ {@link DinnerTable}</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageOperations441" onclick="parent.toggleDiv('detailsDIVOperations441','DetailsImageOperations441')" />Details:
+						<div id="detailsDIVOperations441" class="DetailsDiv" >
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					
+					
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			&#1056;&#8217;&#1056;&#1105;&#1056;&#1108;&#1056;&#1109;&#1056;&#1029;&#1057;&#1107;&#1057;&#8221; &#1056;&#1109;&#1056;&#1029;&#1056;&#1109;&#1056;&#1030;&#1056;»&#1056;µ&#1056;&#1029;&#1056;&#1029;&#1057;&#1039; &#1057;&#8211;&#1056;&#1029;&#1057;&#8222;&#1056;&#1109;&#1057;&#1026;&#1056;&#1112;&#1056;°&#1057;&#8224;&#1057;&#8211;&#1057;&#8212; &#1056;&#1111;&#1057;&#1026;&#1056;&#1109; &#1057;&#1027;&#1057;&#8218;&#1057;&#8211;&#1056;» &#1056;&#1030; &#1057;&#1027;&#1056;&#1105;&#1057;&#1027;&#1057;&#8218;&#1056;µ&#1056;&#1112;&#1057;&#8211; 
+		</td>
+	</tr>
+</table></div>
+
+						</div>
+					</div>
+				</td>
+			</tr>
+
+		</table>
+</div>		<div class="ItemBody" id="AssociationsToTable">
+			<table border="0" cellspacing="0" cellpadding="0" class="Table">
+				<tr>
+					<td width="40%" class="TableHeading">Element</td>
+					<td width="30%" class="TableHeading">Source Role</td>
+					<td width="30%" class="TableHeading">Target Role</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA239.htm">TableController</a><br />
+						Class &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink442" onclick="parent.toggleDiv('detailsDIVLink442','DetailsImageLink442')" />Details:
+							<div id="detailsDIVLink442" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+
+			</table>
+		</div>
+		<div class="ItemBody" id="LinksTable">
+			<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
+				<tr>
+					<td width="30%" class="TableHeading">Object</td>
+					<td width="10%" class="TableHeading">Type</td>
+					<td width="10%" class="TableHeading">Connection</td>
+					<td width="10%" class="TableHeading">Direction</td>
+					<td width="40%" class="TableHeading">Notes</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA221.htm">DinnerTableDaoImpl</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Realization</td>
+					<td width="10%" class="TableRow" valign="top">From</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA239.htm">TableController</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Weak</td>
+					<td width="10%" class="TableRow" valign="top">To</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+
+			</table>
+		</div>
+	</div>
+<div class="pageFooter"></div>
+ 
+</body>
+</html>
