@@ -34,7 +34,6 @@ public class TableReservation {
     @Column
     private LocalDateTime endTimeReservation;
 
-
     public int getId() {
         return Id;
     }

@@ -5,16 +5,18 @@ import com.springapp.entity.enums.UserType;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
+import java.util.UUID;
 
 /**
  * Created by oleg on 28.11.15.
  */
 @Entity
+@Table
 public class User implements Serializable {
 
     @Id
     @Column(name = "UserID")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private int ID;
 
     @Column(name = "name", length = 50)
@@ -36,7 +38,8 @@ public class User implements Serializable {
     @Column(name = "workMark", nullable = true)
     private short workMark;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "UserID",referencedColumnName = "UserID")
     private Set<MobileNumber> mobileNumbers;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)

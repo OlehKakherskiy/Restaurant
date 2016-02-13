@@ -7,9 +7,9 @@ import com.springapp.entity.Dish;
  */
 public interface DishDao {
 
-    Dish readDishByID(int Dish);
+    Dish readDishByID(int Dish); //TODO: realization
 
-    void delete(Dish dish);
+    void delete(int dishID);
 
     Dish insert(Dish dish);
 

@@ -6,6 +6,7 @@ import javax.persistence.*;
  * Created by oleg on 28.11.15.
  */
 @Entity
+@Table(name = "mobileNumber")
 public class MobileNumber {
 
     @Id
@@ -16,16 +17,7 @@ public class MobileNumber {
     @Column(name = "mobileNumber")
     private String mobileNumber;
 
-    @ManyToOne
-    @JoinColumn(name = "UserID")
-    private User user;
-
     public MobileNumber() {
-    }
-
-    public MobileNumber(String mobileNumber, User user) {
-        this.mobileNumber = mobileNumber;
-        this.user = user;
     }
 
     public MobileNumber(String mobileNumber) {
@@ -48,11 +40,4 @@ public class MobileNumber {
         this.mobileNumber = mobileNumber;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 }

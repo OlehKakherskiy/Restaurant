@@ -1,6 +1,7 @@
 package com.springapp.entity;
 
 import com.springapp.entity.enums.OrderStatus;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import javax.persistence.*;
 import java.io.Serializable;

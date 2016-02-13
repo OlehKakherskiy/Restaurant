@@ -10,13 +10,13 @@ import java.util.List;
  */
 public interface DishTypeDao {
 
-    List<DishType> getAllTypes();
+    List<DishType> getAllTypes(); //TODO: realization
 
-    DishType getTypeById(int id);
+    DishType getTypeById(int id); //TODO: realization
 
-    void updateType(Dish dish);
+    void updateType(DishType dish);
 
-    void deleteType(Dish dish);
+    void deleteType(DishType dish);
 
-    void addType(Dish dish);
+    void addType(DishType dish);
 }

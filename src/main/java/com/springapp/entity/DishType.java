@@ -7,6 +7,7 @@ import java.util.Set;
  * Created by oleg on 29.11.15.
  */
 @Entity
+@Table
 public class DishType {
 
     @Id

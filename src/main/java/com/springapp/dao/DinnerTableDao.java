@@ -10,13 +10,13 @@ import java.util.Set;
  */
 public interface DinnerTableDao {
 
-    Set<DinnerTable> selectAllTableWithReservationStatus(LocalDateTime definedTime);
+    Set<DinnerTable> selectAllTableWithReservationStatus(LocalDateTime definedTime); //TODO: realization
 
-    DinnerTable selectWithDetailedReservation(int ID, LocalDateTime startTime, LocalDateTime endTime);
+    DinnerTable selectWithDetailedReservation(int ID, LocalDateTime startTime, LocalDateTime endTime); //TODO: realization
 
     void insertDinnerTable(DinnerTable table);
 
     void removeDinnerTable(DinnerTable table);
 
-    void updateDinnerTable(DinnerTable table);
+    void updateDinnerTable(DinnerTable table); //TODO: realization
 }

@@ -7,9 +7,9 @@ import com.springapp.entity.Order;
  */
 public interface OrderDao {
 
-    Order selectOrder(int ID);
+    Order selectOrder(int ID); //TODO: realization
 
-    void deleteOrder(int ID);
+    void deleteOrder(int ID); //TODO: realization
 
-    void insertOrder(Order order);
+    void insertOrder(Order order); //TODO: realization
 }
