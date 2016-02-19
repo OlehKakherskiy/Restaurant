@@ -236,7 +236,7 @@ CREATE TABLE IF NOT EXISTS `restaurant`.`User` (
   `email` VARCHAR(100) NOT NULL,
   `workMark` TINYINT(3) UNSIGNED NOT NULL,
   `password` VARCHAR(255) NOT NULL,
-  `userType` ENUM('client','waiter','administrator','chief-kitchener','kitchener') NULL DEFAULT NULL,
+  `userType` ENUM('CLIENT','WAITER','ADMIN','CHIEF','KITCHENER') NULL DEFAULT NULL,
   PRIMARY KEY (`UserID`))
   ENGINE = InnoDB
   DEFAULT CHARACTER SET = utf8

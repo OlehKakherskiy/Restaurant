@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <User UserID="1" name="oleh" surname="kakherskiy" email="ol@gmail.com" workmark="0" password="123"
+          userType="ADMIN"/>
+    <User UserID="2" name="evhen" surname="pupkin" email="pupok@mail.ru" workmark="5" password="123123123"
+          userType="KITCHENER"/>
+    <User UserID="3" name="anka" surname="pupkina" email="jenaPupka@mail.ru" workmark="3" password="4444"
+          userType="WAITER"/>
+    <User UserID="4" name="name_1" surname="sur_1" email="em_1@gmail.com" password="555" userType="CLIENT"
+          workmark="0"/>
+    <User UserID="5" name="name_2" surname="sur_2" email="em_2@gmail.com" password="666" userType="CLIENT"
+          workmark="0"/>
+    <User UserID="6" name="name_3" surname="sur_3" email="em_3@gmail.com" password="777" userType="CLIENT"
+          workmark="0"/>
+    <User UserID="7" name="name_4" surname="sur_4" email="em_4@gmail.com" password="888" userType="CLIENT"
+          workmark="0"/>
+    <User UserID="8" name="name_5" surname="sur_5" email="em_5@gmail.com" password="999" userType="CLIENT"
+          workmark="0"/>
+    <User UserID="9" name="name_6" surname="sur_6" email="em_6@gmail.com" password="000" userType="CLIENT"
+          workmark="0"/>
+    <MobileNumber mobileNumberID="1" mobileNumber="09357056811" UserID="1"/>
+    <MobileNumber mobileNumberID="2" mobileNumber="09357056812" UserID="2"/>
+    <MobileNumber mobileNumberID="3" mobileNumber="09357056813" UserID="3"/>
+    <MobileNumber mobileNumberID="4" mobileNumber="09357056814" UserID="4"/>
+    <MobileNumber mobileNumberID="5" mobileNumber="09357056815" UserID="5"/>
+    <MobileNumber mobileNumberID="6" mobileNumber="09357056816" UserID="6"/>
+    <MobileNumber mobileNumberID="7" mobileNumber="09357056817" UserID="7"/>
+    <MobileNumber mobileNumberID="8" mobileNumber="09357056818" UserID="8"/>
+    <MobileNumber mobileNumberID="9" mobileNumber="09357056819" UserID="9"/>
+    <MobileNumber mobileNumberID="10" mobileNumber="093570568112" UserID="1"/>
+    <MobileNumber mobileNumberID="11" mobileNumber="093570568113" UserID="1"/>
+    <MobileNumber mobileNumberID="12" mobileNumber="093570568114" UserID="1"/>
+</dataset>

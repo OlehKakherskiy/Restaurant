@@ -4,7 +4,7 @@ package com.springapp.entity.enums;
  * Created by oleg on 28.11.15.
  */
 public enum UserType {
-    ADMINISTRATOR,
+    ADMIN,
     CHIEF,
     KITCHENER,
     CLIENT,

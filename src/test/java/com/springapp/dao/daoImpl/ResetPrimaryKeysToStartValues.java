@@ -8,11 +8,11 @@ import java.lang.annotation.Target;
 /**
  * @author Oleh Kakherskyi, IP-31, FICT, NTUU "KPI", olehkakherskiy@gmail.com
  */
-@Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface DataSets {
+@Target({ElementType.METHOD, ElementType.TYPE})
+public @interface ResetPrimaryKeysToStartValues {
 
-    String initDataSet() default "";
+    String[] tables() default {};
 
-    String expectedDataSet() default "";
+    int[] startPrimaryKeyValues() default {};
 }

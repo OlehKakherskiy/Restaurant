@@ -4,8 +4,9 @@ import com.springapp.entity.enums.UserType;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
-import java.util.UUID;
 
 /**
  * Created by oleg on 28.11.15.
@@ -16,7 +17,7 @@ public class User implements Serializable {
 
     @Id
     @Column(name = "UserID")
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int ID;
 
     @Column(name = "name", length = 50)
@@ -35,21 +36,22 @@ public class User implements Serializable {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "workMark", nullable = true)
+    @Column(name = "workMark")
     private short workMark;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "UserID",referencedColumnName = "UserID")
-    private Set<MobileNumber> mobileNumbers;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @JoinColumn(name = "UserID", referencedColumnName = "UserID", nullable = false)
+    private List<MobileNumber> mobileNumbers;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Order> orders;
+    private List<Order> orders;
 
     @OneToMany(mappedBy = "waiter", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Order> waiterOrders;
+    private List<Order> waiterOrders;
 
     public User(int ID, String name, String surname, String email, UserType userType, String password,
                 short workMark) {
+        this();
         this.ID = ID;
         this.name = name;
         this.surname = surname;
@@ -61,6 +63,7 @@ public class User implements Serializable {
 
     public User(String name, String surname, String email, UserType userType, String password,
                 short workMark) {
+        this();
         this.name = name;
         this.surname = surname;
         this.email = email;
@@ -70,10 +73,17 @@ public class User implements Serializable {
     }
 
     public User() {
+        mobileNumbers = new ArrayList<MobileNumber>();
+        orders = new ArrayList<Order>();
+        waiterOrders = new ArrayList<Order>();
     }
 
     @Override
     public String toString() {
+        StringBuilder b = new StringBuilder("MobileNumbers: ");
+        for (MobileNumber m : getMobileNumbers())
+            b.append(m.toString()).append(", ");
+        b.delete(b.length() - 2, b.length());
         return "User{" +
                 "workMark=" + workMark +
                 ", password='" + password + '\'' +
@@ -81,7 +91,7 @@ public class User implements Serializable {
                 ", email='" + email + '\'' +
                 ", surname='" + surname + '\'' +
                 ", name='" + name + '\'' +
-                ", ID=" + ID +
+                ", ID=" + ID + " " + b.toString() +
                 '}';
     }
 
@@ -92,18 +102,32 @@ public class User implements Serializable {
 
         User user = (User) o;
 
-        if (ID != user.ID) return false;
-        if (workMark != user.workMark) return false;
-        if (!name.equals(user.name)) return false;
-        if (!surname.equals(user.surname)) return false;
-        if (!email.equals(user.email)) return false;
-        if (userType != user.userType) return false;
-        if (!password.equals(user.password)) return false;
-        if (mobileNumbers != null ? !mobileNumbers.equals(user.mobileNumbers) : user.mobileNumbers != null)
-            return false;
-        if (orders != null ? !orders.equals(user.orders) : user.orders != null) return false;
-        return !(waiterOrders != null ? !waiterOrders.equals(user.waiterOrders) : user.waiterOrders != null);
+        if (getID() != user.getID()) return false;
+        if (getWorkMark() != user.getWorkMark()) return false;
+        if (!getName().equals(user.getName())) return false;
+        if (!getSurname().equals(user.getSurname())) return false;
+        if (!getEmail().equals(user.getEmail())) return false;
+        if (getUserType() != user.getUserType()) return false;
+        if (!getPassword().equals(user.getPassword())) return false;
 
+        if (!getMobileNumbers().equals(user.getMobileNumbers())) return false;
+        if (!getOrders().equals(user.getOrders())) return false;
+        return getWaiterOrders().equals(user.getWaiterOrders());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getID();
+        result = 31 * result + getName().hashCode();
+        result = 31 * result + getSurname().hashCode();
+        result = 31 * result + getEmail().hashCode();
+        result = 31 * result + getUserType().hashCode();
+        result = 31 * result + getPassword().hashCode();
+        result = 31 * result + (int) getWorkMark();
+        result = 31 * result + getMobileNumbers().hashCode();
+        result = 31 * result + getOrders().hashCode();
+        result = 31 * result + getWaiterOrders().hashCode();
+        return result;
     }
 
     public int getID() {
@@ -162,27 +186,27 @@ public class User implements Serializable {
         this.workMark = workMark;
     }
 
-    public void setMobileNumbers(Set<MobileNumber> mobileNumbers) {
-        this.mobileNumbers = mobileNumbers;
-    }
-
-    public Set<MobileNumber> getMobileNumbers() {
+    public List<MobileNumber> getMobileNumbers() {
         return mobileNumbers;
     }
 
-    public Set<Order> getOrders() {
+    public void setMobileNumbers(List<MobileNumber> mobileNumbers) {
+        this.mobileNumbers = mobileNumbers;
+    }
+
+    public List<Order> getOrders() {
         return orders;
     }
 
-    public void setOrders(Set<Order> orders) {
+    public void setOrders(List<Order> orders) {
         this.orders = orders;
     }
 
-    public Set<Order> getWaiterOrders() {
+    public List<Order> getWaiterOrders() {
         return waiterOrders;
     }
 
-    public void setWaiterOrders(Set<Order> waiterOrders) {
+    public void setWaiterOrders(List<Order> waiterOrders) {
         this.waiterOrders = waiterOrders;
     }
 }

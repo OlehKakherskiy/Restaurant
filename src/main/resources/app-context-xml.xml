@@ -1,26 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:p="http://www.springframework.org/schema/p"
-       xmlns:util="http://www.springframework.org/schema/util"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/util  http://www.springframework.org/schema/util/spring-util.xsd
-       http://www.springframework.org/schema/mvc  http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd">
     <mvc:annotation-driven/>
-    <!--<context:annotation-config/>-->
-    <bean id="entityManager" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
-          p:dataSource-ref="dataSource"
-          p:packagesToScan="com.springapp.entity"
-          p:jpaVendorAdapter-ref="hibernateAdapter"
-          p:jpaProperties-ref="jpaProperties"/>
-
-    <bean id="hibernateAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
-    <util:properties id="jpaProperties">
-        <prop key="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</prop>
-        <prop key="hibernate.show_sql">true</prop>
-    </util:properties>
-
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="emf"/>
+    </bean>
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <bean id="emf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan" value="com.springapp.entity"/>
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
+        </property>
+        <property name="jpaProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <!--<prop key="hibernate.hbm2ddl.auto">create</prop>-->
+                <!--<prop key="hibernate.current_session_context_class">jta</prop>-->
+            </props>
+        </property>
+    </bean>
 
     <bean id="dishDao" class="com.springapp.dao.daoImpl.DishDaoImpl"/>
 
@@ -35,23 +43,37 @@
     <!--<bean id="orderPositionDao" class="com.springapp.dao.daoImpl.OrderPositionDaoImpl"/>-->
 
     <beans profile="deploy">
-        <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
-              p:driverClassName="com.mysql.jdbc.Driver"
-              p:url="localhost:3030"
-              p:username="root"
-              p:password="11051995"/>
+        <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+            <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+            <property name="url" value="jdbc:mysql://localhost:3030/restaurant"/>
+            <property name="username" value="root"/>
+            <property name="password" value="11051995"/>
+        </bean>
     </beans>
 
     <beans profile="test">
-        <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
-              p:driverClassName="com.mysql.jdbc.Driver"
-              p:url="jdbc:mysql://localhost:3306/restaurant"
-              p:username="root"
-              p:password="11051995"/>
-
+        <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+            <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+            <property name="url" value="jdbc:mysql://localhost:3306/restaurant"/>
+            <property name="username" value="root"/>
+            <property name="password" value="11051995"/>
+        </bean>
         <bean id="databaseTester" class="org.dbunit.DataSourceDatabaseTester">
             <constructor-arg ref="dataSource"/>
             <constructor-arg name="schema" value="restaurant"/>
+        </bean>
+        <bean id="dbUnitDatabaseConfig" class="com.github.springtestdbunit.bean.DatabaseConfigBean">
+            <property name="datatypeFactory" ref="dataTypeFactory"/>
+            <property name="metadataHandler" ref="metadataHandler"/>
+            <!--<property name="caseSensitiveTableNames" value="true"/>-->
+        </bean>
+        <bean id="dataTypeFactory" class="org.dbunit.ext.mysql.MySqlDataTypeFactory"/>
+        <bean id="metadataHandler" class="org.dbunit.ext.mysql.MySqlMetadataHandler"/>
+        <bean id="dbUnitDatabaseConnection"
+              class="com.github.springtestdbunit.bean.DatabaseDataSourceConnectionFactoryBean">
+            <property name="dataSource" ref="dataSource"/>
+            <property name="databaseConfig" ref="dbUnitDatabaseConfig"/>
+            <property name="schema" value="restaurant"/>
         </bean>
     </beans>
 </beans>

@@ -1,10 +1,10 @@
 package com.springapp.entity;
 
 import com.springapp.entity.enums.OrderStatus;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -33,6 +33,35 @@ public class Order implements Serializable {
     @Column(name = "orderStatus")
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
+
+    public Order() {
+        dishList = new HashSet<OrderPosition>();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Order order = (Order) o;
+
+        if (getID() != order.getID()) return false;
+        if (!getCustomer().equals(order.getCustomer())) return false;
+        if (getWaiter() != null ? !getWaiter().equals(order.getWaiter()) : order.getWaiter() != null) return false;
+        if (!getDishList().equals(order.getDishList())) return false;
+        return getStatus() == order.getStatus();
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getID();
+        result = 31 * result + getCustomer().hashCode();
+        result = 31 * result + (getWaiter() != null ? getWaiter().hashCode() : 0);
+        result = 31 * result + getDishList().hashCode();
+        result = 31 * result + getStatus().hashCode();
+        return result;
+    }
 
     public User getCustomer() {
         return customer;

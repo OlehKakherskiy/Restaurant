@@ -4,6 +4,7 @@ import com.springapp.dao.UserDao;
 import com.springapp.entity.User;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -13,7 +14,7 @@ import javax.persistence.PersistenceContext;
  */
 @Service("userJpaService")
 @Repository
-//@Transactional
+@Transactional
 public class UserDaoImpl implements UserDao {
 
     @PersistenceContext
@@ -22,7 +23,7 @@ public class UserDaoImpl implements UserDao {
     public UserDaoImpl() {
     }
 
-    //    @Transactional(readOnly = true)
+    @Transactional(readOnly = true)
     @Override
     public User selectById(int ID) {
         return entityManager.find(User.class, ID);
@@ -30,7 +31,11 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User save(User user) {
-        entityManager.persist(user);
+        if (entityManager.contains(user))
+            entityManager.merge(user);
+        else {
+            entityManager.persist(user);
+        }
         return user;
     }
 
@@ -52,5 +57,5 @@ public class UserDaoImpl implements UserDao {
     public void setEntityManager(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
-    
+
 }

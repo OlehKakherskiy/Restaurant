@@ -1,6 +1,7 @@
 package com.springapp.entity;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -19,10 +20,10 @@ public class DishType {
     @JoinTable(name = "DishTypeHierarchy",
             joinColumns = @JoinColumn(name = "parentTypeID"),
             inverseJoinColumns = @JoinColumn(name = "subtypeID"))
-    private Set<DishType> subtypes;
+    private List<DishType> subtypes;
 
     @OneToMany(mappedBy = "type", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Dish> dishes;
+    private List<Dish> dishes;
 
     public int getID() {
         return ID;
@@ -32,19 +33,19 @@ public class DishType {
         this.ID = ID;
     }
 
-    public Set<DishType> getSubtypes() {
+    public List<DishType> getSubtypes() {
         return subtypes;
     }
 
-    public void setSubtypes(Set<DishType> subtypes) {
+    public void setSubtypes(List<DishType> subtypes) {
         this.subtypes = subtypes;
     }
 
-    public Set<Dish> getDishes() {
+    public List<Dish> getDishes() {
         return dishes;
     }
 
-    public void setDishes(Set<Dish> dishes) {
+    public void setDishes(List<Dish> dishes) {
         this.dishes = dishes;
     }
 }
