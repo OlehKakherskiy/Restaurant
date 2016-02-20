@@ -10,7 +10,6 @@ import com.springapp.dao.UserDao;
 import com.springapp.entity.MobileNumber;
 import com.springapp.entity.User;
 import com.springapp.entity.enums.UserType;
-import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -22,7 +21,7 @@ import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import javax.sql.DataSource;
+import javax.persistence.PersistenceException;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +35,7 @@ import java.util.List;
 @ActiveProfiles("test")
 @DbUnitConfiguration(databaseConnection = {"dbUnitDatabaseConnection"})
 @DatabaseSetup(value = "/userDataSet.xml", type = DatabaseOperation.CLEAN_INSERT)
+@Transactional
 public class UserDaoImplTest extends AbstractJUnit4SpringContextTests {
 
     @Autowired
@@ -43,7 +43,6 @@ public class UserDaoImplTest extends AbstractJUnit4SpringContextTests {
 
 
     @Test
-    @Transactional
     public void testSelectById() throws Exception {
         User expect = new User();
         expect.setID(1);
@@ -72,9 +71,8 @@ public class UserDaoImplTest extends AbstractJUnit4SpringContextTests {
     }
 
     @Test
-    @ExpectedDatabase(assertionMode = DatabaseAssertionMode.NON_STRICT_UNORDERED, value = "/insertUser_2mobileNumbers.xml")
-    @Transactional
     @ResetPrimaryKeysToStartValues(tables = {"User", "MobileNumber"}, startPrimaryKeyValues = {10, 13})
+    @ExpectedDatabase(assertionMode = DatabaseAssertionMode.NON_STRICT_UNORDERED, value = "/insertUser_2mobileNumbers.xml")
     public void testSaveWith2MobileNumbers() throws Exception {
         User testSaveUser = new User();
         testSaveUser.setName("name_7");
@@ -91,14 +89,13 @@ public class UserDaoImplTest extends AbstractJUnit4SpringContextTests {
         set.add(num2);
         testSaveUser.setMobileNumbers(set);
 
-        userDao.save(testSaveUser);
+        userDao.saveOrUpdate(testSaveUser);
 
         Assert.assertNotNull("User object isn't returned after persisting operation", testSaveUser);
         Assert.assertNotNull("User's object ID isn't initialised after persisting operation", testSaveUser.getID());
     }
 
     @Test
-    @Transactional
     @ResetPrimaryKeysToStartValues(tables = {"User", "MobileNumber"}, startPrimaryKeyValues = {10, 13})
     public void testSaveAllDataFilled() throws Exception {
         User testSaveUser = new User();
@@ -113,17 +110,140 @@ public class UserDaoImplTest extends AbstractJUnit4SpringContextTests {
         List<MobileNumber> set = new ArrayList<MobileNumber>();
         set.add(num1);
         testSaveUser.setMobileNumbers(set);
-        userDao.save(testSaveUser);
+        userDao.saveOrUpdate(testSaveUser);
 
         Assert.assertNotNull("User object isn't returned after persisting operation", testSaveUser);
         Assert.assertNotNull("User's object ID isn't initialised after persisting operation", testSaveUser.getID());
     }
+    //TODO: тест удаления + апдейта + протестировать orphanRemoval и ошибки в результате неправильных значений (null)
 
-//    public void testDelete() throws Exception {
+    /**
+     * checking PersistenceException when save user without name
+     */
+    @Test(expected = PersistenceException.class)
+    public void testSaveWithoutName() {
+        User testSaveUser = new User();
+//        testSaveUser.setName("name_7");
+        testSaveUser.setSurname("sur_7");
+        testSaveUser.setEmail("em_7@gmail.com");
+        testSaveUser.setPassword("000");
+        testSaveUser.setUserType(UserType.KITCHENER);
+
+        MobileNumber num1 = new MobileNumber("093570568110");
+
+        List<MobileNumber> set = new ArrayList<MobileNumber>();
+        set.add(num1);
+        testSaveUser.setMobileNumbers(set);
+
+        userDao.saveOrUpdate(testSaveUser);
+    }
+
+    @Test(expected = PersistenceException.class)
+    public void testSaveWithoutLastName() {
+        User testSaveUser = new User();
+        testSaveUser.setName("name_7");
+//        testSaveUser.setSurname("sur_7");
+        testSaveUser.setEmail("em_7@gmail.com");
+        testSaveUser.setPassword("000");
+        testSaveUser.setUserType(UserType.KITCHENER);
+
+        MobileNumber num1 = new MobileNumber("093570568110");
+
+        List<MobileNumber> set = new ArrayList<MobileNumber>();
+        set.add(num1);
+        testSaveUser.setMobileNumbers(set);
+        userDao.saveOrUpdate(testSaveUser);
+    }
+
+    @Test(expected = PersistenceException.class)
+    public void testSaveWithoutEmail() {
+        User testSaveUser = new User();
+        testSaveUser.setName("name_7");
+        testSaveUser.setSurname("sur_7");
+//        testSaveUser.setEmail("em_7@gmail.com");
+        testSaveUser.setPassword("000");
+        testSaveUser.setUserType(UserType.KITCHENER);
+
+        MobileNumber num1 = new MobileNumber("093570568110");
+
+        List<MobileNumber> set = new ArrayList<MobileNumber>();
+        set.add(num1);
+        testSaveUser.setMobileNumbers(set);
+
+        userDao.saveOrUpdate(testSaveUser);
+    }
+
+    @Test(expected = PersistenceException.class)
+    public void testSaveWithoutPassword() {
+        User testSaveUser = new User();
+        testSaveUser.setName("name_7");
+        testSaveUser.setSurname("sur_7");
+        testSaveUser.setEmail("em_7@gmail.com");
+//        testSaveUser.setPassword("000");
+        testSaveUser.setUserType(UserType.KITCHENER);
+
+        MobileNumber num1 = new MobileNumber("093570568110");
+
+        List<MobileNumber> set = new ArrayList<MobileNumber>();
+        set.add(num1);
+        testSaveUser.setMobileNumbers(set);
+
+        userDao.saveOrUpdate(testSaveUser);
+    }
+
+    @Test(expected = PersistenceException.class)
+    public void testSaveWithoutUserType() {
+        User testSaveUser = new User();
+        testSaveUser.setName("name_7");
+        testSaveUser.setSurname("sur_7");
+        testSaveUser.setEmail("em_7@gmail.com");
+        testSaveUser.setPassword("000");
+//        testSaveUser.setUserType(UserType.KITCHENER);
+
+        MobileNumber num1 = new MobileNumber("093570568110");
+
+        List<MobileNumber> set = new ArrayList<MobileNumber>();
+        set.add(num1);
+        testSaveUser.setMobileNumbers(set);
+
+        userDao.saveOrUpdate(testSaveUser);
+    }
+
+    @Test(expected = PersistenceException.class)
+    @Ignore
+    public void testSaveWithoutMobilePhones() {
+        User testSaveUser = new User();
+        testSaveUser.setName("name_7");
+        testSaveUser.setSurname("sur_7");
+        testSaveUser.setEmail("em_7@gmail.com");
+        testSaveUser.setPassword("000");
+        testSaveUser.setUserType(UserType.KITCHENER);
+
+//        MobileNumber num1 = new MobileNumber("093570568110");
 //
-//    }
-//
-//    public void testUpdate() throws Exception {
-//
-//    }
+//        List<MobileNumber> set = new ArrayList<MobileNumber>();
+//        set.add(num1);
+//        testSaveUser.setMobileNumbers(set);
+
+        userDao.saveOrUpdate(testSaveUser);
+    }
+
+    @Test
+    @ExpectedDatabase(value = "/afterDeleteUser.xml", assertionMode = DatabaseAssertionMode.NON_STRICT,table = "MobileNumber")
+    public void testDelete() throws Exception {
+        userDao.delete(1);
+    }
+
+    @Test(expected = PersistenceException.class)
+    @Ignore
+    public void testDeleteAbsentUser() throws Exception {
+        userDao.delete(200);
+    }
+
+    @Test
+    @ExpectedDatabase
+    @Ignore
+    public void testUpdate() throws Exception {
+
+    }
 }

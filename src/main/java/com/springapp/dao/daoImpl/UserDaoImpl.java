@@ -30,7 +30,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public User save(User user) {
+    public User saveOrUpdate(User user) {
         if (entityManager.contains(user))
             entityManager.merge(user);
         else {
@@ -40,22 +40,10 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void delete(User user) {
-        entityManager.remove(user);
+    public void delete(int ID) {
+        User u = entityManager.find(User.class, ID);
+        entityManager.remove(u);
+        User u2 = entityManager.find(User.class, ID);
+        System.out.println(u2);
     }
-
-
-    @Override
-    public void update(User user) {
-        entityManager.merge(user);
-    }
-
-    public EntityManager getEntityManager() {
-        return entityManager;
-    }
-
-    public void setEntityManager(EntityManager entityManager) {
-        this.entityManager = entityManager;
-    }
-
 }

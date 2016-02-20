@@ -21,7 +21,7 @@ public class UserController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/register", consumes = "application/json")
     public HttpStatus registerUser(User u) {
-        userDao.save(u);
+        userDao.saveOrUpdate(u);
         return HttpStatus.OK;
     }
 
@@ -32,7 +32,7 @@ public class UserController {
 
     @RequestMapping(value = "/updateProfile", consumes = "application/json", method = RequestMethod.POST)
     public HttpStatus updateProfile(User user) {
-        userDao.update(user);
+        userDao.saveOrUpdate(user);
         return HttpStatus.OK;
     }
 }
