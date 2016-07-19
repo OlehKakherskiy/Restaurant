@@ -31,11 +31,12 @@ public class MenuController {
 
     @RequestMapping(value = "/menu/menuItem/{id}", method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity<Dish> getDishProfile(@PathVariable("id") int id) {
-        return new ResponseEntity<Dish>(dishDao.readDishByID(id), HttpStatus.OK);
+        return new ResponseEntity<Dish>(dishDao.read(id), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/menu/menuList", method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity<List<DishType>> getMenu() {
-        return new ResponseEntity<List<DishType>>(dishTypeDao.getAllTypes(), HttpStatus.OK);
+//        return new ResponseEntity<List<DishType>>(dishTypeDao.getAllTypes(), HttpStatus.OK);
+        return null;
     }
 }

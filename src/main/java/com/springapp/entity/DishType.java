@@ -2,7 +2,6 @@ package com.springapp.entity;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by oleg on 29.11.15.
@@ -16,14 +15,24 @@ public class DishType {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int ID;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "DishTypeHierarchy",
-            joinColumns = @JoinColumn(name = "parentTypeID"),
-            inverseJoinColumns = @JoinColumn(name = "subtypeID"))
+    @OneToMany(mappedBy = "type", cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JoinColumn(name = "dishTypeID",referencedColumnName = "DishTypeID")
+    private List<Dish> dishes;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "parentTypeID", referencedColumnName = "DishTypeID")
     private List<DishType> subtypes;
 
-    @OneToMany(mappedBy = "type", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Dish> dishes;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        DishType dishType = (DishType) o;
+
+        return getID() == dishType.getID();
+
+    }
 
     public int getID() {
         return ID;
@@ -33,19 +42,19 @@ public class DishType {
         this.ID = ID;
     }
 
-    public List<DishType> getSubtypes() {
-        return subtypes;
-    }
-
-    public void setSubtypes(List<DishType> subtypes) {
-        this.subtypes = subtypes;
-    }
-
     public List<Dish> getDishes() {
         return dishes;
     }
 
     public void setDishes(List<Dish> dishes) {
         this.dishes = dishes;
+    }
+
+    public List<DishType> getSubtypes() {
+        return subtypes;
+    }
+
+    public void setSubtypes(List<DishType> subtypes) {
+        this.subtypes = subtypes;
     }
 }

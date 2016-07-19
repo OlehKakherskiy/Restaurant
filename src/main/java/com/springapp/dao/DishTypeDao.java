@@ -1,22 +1,27 @@
 package com.springapp.dao;
 
-import com.springapp.entity.Dish;
 import com.springapp.entity.DishType;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 /**
  * Created by oleg on 03.12.15.
  */
+@Service("dishTypeService")
+@Repository
+@Transactional
 public interface DishTypeDao {
 
-    List<DishType> getAllTypes(); //TODO: realization
+    @Transactional(readOnly = true)
+    List<DishType> readAllTypes();
 
-    DishType getTypeById(int id); //TODO: realization
+    @Transactional(readOnly = true)
+    DishType readType(int id);
 
-    void updateType(DishType dish);
+    void deleteType(int id);
 
-    void deleteType(DishType dish);
-
-    void addType(DishType dish);
+    DishType addOrUpdateType(DishType dish);
 }

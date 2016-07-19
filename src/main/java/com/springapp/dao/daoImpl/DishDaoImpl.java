@@ -2,8 +2,6 @@ package com.springapp.dao.daoImpl;
 
 import com.springapp.dao.DishDao;
 import com.springapp.entity.Dish;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -13,16 +11,12 @@ import javax.persistence.PersistenceContext;
  */
 public class DishDaoImpl implements DishDao {
 
-
     @PersistenceContext
-    public EntityManager entityManager;
-
-    public DishDaoImpl() {
-    }
+    private EntityManager entityManager;
 
     @Override
-    public Dish readDishByID(int Dish) {
-        return null;
+    public Dish read(int ID) {
+        return entityManager.find(Dish.class, ID);
     }
 
     /**
@@ -31,25 +25,16 @@ public class DishDaoImpl implements DishDao {
      * @param dishID ID страви, яка має бути видалена із системи
      */
     @Override
-    public void delete(int dishID) {
-
+    public void remove(int dishID) {
+        entityManager.remove(read(dishID));
     }
 
     @Override
-    public Dish insert(Dish dish) {
-        return null;
+    public Dish saveOrUpdate(Dish dish) {
+        if (entityManager.contains(dish))
+            entityManager.merge(dish);
+        else entityManager.persist(dish);
+        return dish;
     }
 
-    @Override
-    public void update(Dish dish) {
-
-    }
-
-//    public SessionFactory getSessionFactory() {
-//        return sessionFactory;
-//    }
-//
-//    public void setSessionFactory(SessionFactory sessionFactory) {
-//        this.sessionFactory = sessionFactory;
-//    }
 }

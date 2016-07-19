@@ -3,6 +3,9 @@ package com.springapp.dao.daoImpl;
 import com.springapp.dao.DishTypeDao;
 import com.springapp.entity.DishType;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,12 +13,8 @@ import java.util.List;
  */
 public class DishTypeDaoImpl implements DishTypeDao {
 
-//    @Autowired
-//    private SessionFactory sessionFactory;
-
-    public DishTypeDaoImpl() {
-    }
-
+    @PersistenceContext
+    private EntityManager entityManager;
 
     /**
      * Повертає всю ієрархію типів страв із залежними від них страв (об'єкти страв
@@ -24,35 +23,28 @@ public class DishTypeDaoImpl implements DishTypeDao {
      * @return список типів
      */
     @Override
-    public List<DishType> getAllTypes() {
-
-        return null;
+    public List<DishType> readAllTypes() {
+        return new ArrayList<DishType>();
     }
 
     @Override
-    public DishType getTypeById(int id) {
-        return null;
+    public DishType readType(int id) {
+        DishType dishType = entityManager.find(DishType.class, id);
+        dishType.getDishes();
+        dishType.getSubtypes();
+        return dishType;
     }
 
-    /**
-     * Виконує оновлення типу страв
-     *
-     * @param dish об'єкт з новими даними
-     */
-    @Override
-    public void updateType(DishType dish) {
-
-    }
 
     /**
      * Виконує видалення типу страви із системи. Всі залежні типи та страви мають
      * бути перезаписані до супертипу типу страви, що видаляється.
      *
-     * @param dish ID типу страви, що має бути видалена із системи
+     * @param id ID типу страви, що має бути видалена із системи
      */
     @Override
-    public void deleteType(DishType dish) {
-
+    public void deleteType(int id) {
+        entityManager.remove(entityManager.find(DishType.class, id));
     }
 
     /**
@@ -61,7 +53,10 @@ public class DishTypeDaoImpl implements DishTypeDao {
      * @param dish об'єкт типу страви, що буде доданий до системи
      */
     @Override
-    public void addType(DishType dish) {
-
+    public DishType addOrUpdateType(DishType dish) {
+        if (entityManager.contains(dish))
+            entityManager.merge(dish);
+        else entityManager.persist(dish);
+        return dish;
     }
 }

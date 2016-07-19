@@ -1,9 +1,6 @@
 package com.springapp.dao.daoImpl;
 
-import com.github.springtestdbunit.TransactionDbUnitTestExecutionListener;
-import com.github.springtestdbunit.annotation.DatabaseOperation;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
-import com.github.springtestdbunit.annotation.DbUnitConfiguration;
 import com.github.springtestdbunit.annotation.ExpectedDatabase;
 import com.github.springtestdbunit.assertion.DatabaseAssertionMode;
 import com.springapp.dao.UserDao;
@@ -11,39 +8,45 @@ import com.springapp.entity.MobileNumber;
 import com.springapp.entity.User;
 import com.springapp.entity.enums.UserType;
 import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestExecutionListeners;
-import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.PersistenceException;
-import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author Oleh Kakherskyi, IP-31, FICT, NTUU "KPI", olehkakherskiy@gmail.com
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@TestExecutionListeners({ResetDBAutoIncrementTestListener.class, TransactionDbUnitTestExecutionListener.class})
-@ContextConfiguration("file:src/main/resources/app-context-xml.xml")
-@ActiveProfiles("test")
-@DbUnitConfiguration(databaseConnection = {"dbUnitDatabaseConnection"})
-@DatabaseSetup(value = "/userDataSet.xml", type = DatabaseOperation.CLEAN_INSERT)
-@Transactional
-public class UserDaoImplTest extends AbstractJUnit4SpringContextTests {
+@DatabaseSetup(value = "/userDataSet.xml")
+public class UserDaoTest extends ApplicationDBUnitTest {
 
     @Autowired
     private UserDao userDao;
 
+    private static User testUser;
+
+//    @BeforeClass
+//    public static void beforeClassInit() {
+//        testUser.setName("name");
+//        testUser.setSurname("surname");
+//        testUser.setEmail("email");
+//        testUser.setPassword("pass");
+//        MobileNumber num1 = new MobileNumber("093570568110");
+//
+//
+//        List<MobileNumber> set = new ArrayList<MobileNumber>();
+//        set.add(num1);
+//        testUser.setMobileNumbers(set);
+//    }
+
 
     @Test
-    public void testSelectById() throws Exception {
+    @Transactional
+    public void testRead() throws Exception {
         User expect = new User();
         expect.setID(1);
         expect.setEmail("ol@gmail.com");
@@ -66,8 +69,38 @@ public class UserDaoImplTest extends AbstractJUnit4SpringContextTests {
         numbers.add(mobileNumber3);
         numbers.add(mobileNumber4);
         expect.setMobileNumbers(numbers);
-        User user = userDao.selectById(1);
+        User user = userDao.read(1);
         Assert.assertTrue(expect.equals(user));
+    }
+
+    @Test
+    @Transactional
+    public void testReadFully() {
+        User expect = new User();
+        expect.setID(1);
+        expect.setEmail("ol@gmail.com");
+        expect.setName("oleh");
+        expect.setSurname("kakherskiy");
+        expect.setWorkMark((short) 0);
+        expect.setPassword("123");
+        expect.setUserType(UserType.ADMIN);
+        List<MobileNumber> numbers = new ArrayList<MobileNumber>();
+        MobileNumber mobileNumber1 = new MobileNumber("09357056811");
+        mobileNumber1.setID(1);
+        MobileNumber mobileNumber2 = new MobileNumber("093570568112");
+        mobileNumber2.setID(10);
+        MobileNumber mobileNumber3 = new MobileNumber("093570568113");
+        mobileNumber3.setID(11);
+        MobileNumber mobileNumber4 = new MobileNumber("093570568114");
+        mobileNumber4.setID(12);
+        numbers.add(mobileNumber1);
+        numbers.add(mobileNumber2);
+        numbers.add(mobileNumber3);
+        numbers.add(mobileNumber4);
+        expect.setMobileNumbers(numbers);
+
+        User actual = userDao.readFully(1);
+        Assert.assertTrue(expect.equals(actual));
     }
 
     @Test
@@ -115,7 +148,6 @@ public class UserDaoImplTest extends AbstractJUnit4SpringContextTests {
         Assert.assertNotNull("User object isn't returned after persisting operation", testSaveUser);
         Assert.assertNotNull("User's object ID isn't initialised after persisting operation", testSaveUser.getID());
     }
-    //TODO: тест удаления + апдейта + протестировать orphanRemoval и ошибки в результате неправильных значений (null)
 
     /**
      * checking PersistenceException when save user without name
@@ -209,41 +241,26 @@ public class UserDaoImplTest extends AbstractJUnit4SpringContextTests {
         userDao.saveOrUpdate(testSaveUser);
     }
 
-    @Test(expected = PersistenceException.class)
-    @Ignore
-    public void testSaveWithoutMobilePhones() {
-        User testSaveUser = new User();
-        testSaveUser.setName("name_7");
-        testSaveUser.setSurname("sur_7");
-        testSaveUser.setEmail("em_7@gmail.com");
-        testSaveUser.setPassword("000");
-        testSaveUser.setUserType(UserType.KITCHENER);
-
-//        MobileNumber num1 = new MobileNumber("093570568110");
-//
-//        List<MobileNumber> set = new ArrayList<MobileNumber>();
-//        set.add(num1);
-//        testSaveUser.setMobileNumbers(set);
-
-        userDao.saveOrUpdate(testSaveUser);
-    }
-
     @Test
-    @ExpectedDatabase(value = "/afterDeleteUser.xml", assertionMode = DatabaseAssertionMode.NON_STRICT,table = "MobileNumber")
+    @ExpectedDatabase(value = "/afterDeleteUser.xml", assertionMode = DatabaseAssertionMode.NON_STRICT)
     public void testDelete() throws Exception {
         userDao.delete(1);
     }
 
-    @Test(expected = PersistenceException.class)
-    @Ignore
+    @Test(expected = IllegalArgumentException.class)
     public void testDeleteAbsentUser() throws Exception {
         userDao.delete(200);
     }
 
     @Test
-    @ExpectedDatabase
+    @ExpectedDatabase(value = "/updateUser.xml", assertionMode = DatabaseAssertionMode.NON_STRICT)
+    @Transactional
     @Ignore
     public void testUpdate() throws Exception {
-
-    }
+        User user = userDao.read(1);
+        user.setName("olegka");
+        user.setSurname("kakherskiy_jopt");
+        user.setEmail("ol@gmail.com");
+        userDao.saveOrUpdate(user);
+    } //TODO: test update
 }

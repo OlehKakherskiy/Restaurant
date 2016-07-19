@@ -27,7 +27,7 @@ public class UserController {
 
     @RequestMapping(value = "/profile/{ID}", method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity<User> getUserProfile(@PathVariable int ID) {
-        return new ResponseEntity<User>(userDao.selectById(ID), HttpStatus.OK);
+        return new ResponseEntity<User>(userDao.read(ID), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/updateProfile", consumes = "application/json", method = RequestMethod.POST)

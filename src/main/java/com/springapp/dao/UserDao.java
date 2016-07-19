@@ -1,15 +1,25 @@
 package com.springapp.dao;
 
 import com.springapp.entity.User;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by oleg on 29.11.15.
  */
+@Service("userService")
+@Repository
+@Transactional
 public interface UserDao {
 
-    User selectById(int ID); //TODO: realization выборка персональных данных, заказов, связанных с данным пользователем, заданий и тд
+    @Transactional(readOnly = true)
+    User read(int ID);
 
-    User saveOrUpdate(User user); //TODO: realization регистрация нового пользователя
+    @Transactional(readOnly = true)
+    User readFully(int ID);
 
-    void delete(int ID); //TODO: realization
+    User saveOrUpdate(User user);
+
+    void delete(int ID);
 }

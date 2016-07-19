@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <!-- Menu types and subtypes -->
+    <DishType DishTypeID="1" typeName="основное меню"/>
+    <DishType DishTypeID="2" typeName="кофейная карта"/>
+    <DishType DishTypeID="3" typeName="чайная карта"/>
+    <DishType DishTypeID="4" typeName="винная карта"/>
+    <DishType DishTypeID="5" typeName="детское меню"/>
+
+    <DishType DishTypeID="11" typeName="холодные закуски" parentTypeID="1"/>
+    <DishType DishTypeID="12" typeName="гарячие закуски" parentTypeID="1"/>
+    <DishType DishTypeID="13" typeName="супы" parentTypeID="1"/>
+    <DishType DishTypeID="14" typeName="салаты" parentTypeID="1"/>
+    <DishType DishTypeID="15" typeName="гарячие блюда" parentTypeID="1"/>
+    <DishType DishTypeID="16" typeName="десерт" parentTypeID="1"/>
+    <DishType DishTypeID="17" typeName="шеф-повар рекомендует" parentTypeID="1"/>
+
+    <DishType DishTypeID="21" typeName="салаты" parentTypeID="2"/>
+    <DishType DishTypeID="22" typeName="первые блюда" parentTypeID="2"/>
+    <DishType DishTypeID="23" typeName="основные блюда" parentTypeID="2"/>
+
+    <DishType DishTypeID="31" typeName="холодные закуски" parentTypeID="3"/>
+    <DishType DishTypeID="32" typeName="супы" parentTypeID="3"/>
+    <DishType DishTypeID="33" typeName="основные блюда" parentTypeID="3"/>
+    <DishType DishTypeID="34" typeName="дессерты" parentTypeID="3"/>
+
+    <DishType DishTypeID="41" typeName="белое вино" parentTypeID="4"/>
+    <DishType DishTypeID="42" typeName="красное вино" parentTypeID="4"/>
+    <DishType DishTypeID="43" typeName="игристое вино" parentTypeID="4"/>
+    <DishType DishTypeID="44" typeName="шампанское" parentTypeID="4"/>
+    <DishType DishTypeID="45" typeName="розовое шампанское" parentTypeID="4"/>
+
+    <!-- Menu hierarchy -->
+    <DishTypeHierarchy ID="1" parentID="1" subtypeID="11"/>
+    <DishTypeHierarchy ID="2" parentID="1" subtypeID="12"/>
+    <DishTypeHierarchy ID="3" parentID="1" subtypeID="13"/>
+    <DishTypeHierarchy ID="4" parentID="1" subtypeID="14"/>
+    <DishTypeHierarchy ID="5" parentID="1" subtypeID="15"/>
+    <DishTypeHierarchy ID="6" parentID="1" subtypeID="16"/>
+    <DishTypeHierarchy ID="7" parentID="1" subtypeID="17"/>
+    <DishTypeHierarchy ID="8" parentID="1" subtypeID="18"/>
+
+    <DishTypeHierarchy ID="9" parentID="2" subtypeID="21"/>
+    <DishTypeHierarchy ID="10" parentID="2" subtypeID="22"/>
+    <DishTypeHierarchy ID="11" parentID="2" subtypeID="23"/>
+
+    <DishTypeHierarchy ID="12" parentID="3" subtypeID="31"/>
+    <DishTypeHierarchy ID="13" parentID="3" subtypeID="32"/>
+    <DishTypeHierarchy ID="14" parentID="3" subtypeID="33"/>
+    <DishTypeHierarchy ID="15" parentID="3" subtypeID="34"/>
+
+    <DishTypeHierarchy ID="16" parentID="4" subtypeID="41"/>
+    <DishTypeHierarchy ID="17" parentID="4" subtypeID="42"/>
+    <DishTypeHierarchy ID="18" parentID="4" subtypeID="43"/>
+    <DishTypeHierarchy ID="19" parentID="4" subtypeID="44"/>
+    <DishTypeHierarchy ID="20" parentID="4" subtypeID="45"/>
+
+    <!-- Dishes -->
+    <!-- Основное меню. Холодные закуски -->
+    <dish DishID="110" dishTypeID="11" description="no desc" name="Томаты со слабосоленым лососем" price="238.0"/>
+    <dish DishID="111" dishTypeID="11" description="no desc" name="Тартар из лосося и авокадо" price="247.0"/>
+    <dish DishID="112" dishTypeID="11" description="no desc" name="name112" price="112"/>
+    <dish DishID="113" dishTypeID="11" description="no desc" name="name113" price="113"/>
+    <dish DishID="114" dishTypeID="11" description="desc114" name="Салат картофельный с грибами и брусникой" price="114"/>
+    <dish DishID="115" dishTypeID="11" description="desc115" name="Сельдь под шубой" price="115"/>
+    <dish DishID="116" dishTypeID="11" description="desc116" name="Салат 'Оливье' с ветчиной" price="116"/>
+    <dish DishID="117" dishTypeID="11" description="desc117" name="Салат из свеклы с яйцом и майонезом" price="117"/>
+    <dish DishID="118" dishTypeID="11" description="desc118" name="Салат из свежих помидоров с маслом растительным" price="118"/>
+
+    <!-- Основное меню. Гарячие закуски -->
+    <dish DishID="120" dishTypeID="12" description="desc 120" name="Тигровые креветки приготовленные на гриле" price="120"/>
+    <dish DishID="121" dishTypeID="12" description="Вкусные и простые в приготовлении жареные трубочки из лаваша с сырной начинкой. Такое блюдо можно готовить на завтрак, также это отличная закуска на праздничный стол. Приятного вам аппетита!" name="Жареные трубочки из лаваша с сырной начинкой" price="121"/>
+    <dish DishID="122" dishTypeID="12" description="Сырные крокеты - эффектная горячая закуска из хлеба, сыра, яиц и молока." name="Сырные крокеты" price="122"/>
+    <dish DishID="123" dishTypeID="12" description="Простое, но в то же время изысканное блюдо из шампиньонов с курицей с красивым французским названием. Жюльен с курицей и грибами можно приготовить как в порционной посуде, так и в сковороде." name="Жюльен с курицей и шампиньонами" price="123"/>
+    <dish DishID="124" dishTypeID="12" description="Готовятся из отварного картофеля, муки и масла. Обжаренные до румяной корочки картофельники выглядят очень аппетитно!" name="Картофельные треугольники" price="124"/>
+    <dish DishID="125" dishTypeID="12" description="Хрустящий лаваш с курицей – отличная закуска. Лаваш с курицей готовить очень быстро, а получается вкусно и сытно." name="Рулетики из лаваша с курицей" price="125"/>
+
+    <!-- Основное меню. Супы -->
+    <dish DishID="130" dishTypeID="13" description="Филе лосося, масляная рыба, лук репчатый, чеснок, помидоры свежие, масло сливочное, зелень, специи" name="Уха царская наваристая, с лососем и масляной рыбой" price="300.00"/>
+    <dish DishID="131" dishTypeID="13" description="Лосось, судак, лук, огурцы соленые, каперсы, маслины, томат, лимон, зелень" name="Солянка рыбная из судака и лосося" price="260.00"/>
+    <dish DishID="132" dishTypeID="13" description="Лосось, шампиньоны,картофель, лук, морковь, сливки" name="Суп сливочный с лососем и шампиньонами" price="240.0"/>
+    <dish DishID="133" dishTypeID="13" description="Мясной набор, лук репчатый, огурцы солёные, маслины, томат, масло сливочное, сметана, специи" name="Солянка сборная мясная с телячьими почками и разным мясцом" price="150.0"/>
+    <dish DishID="134" dishTypeID="13" description="Мясной набор, свёкла, капуста, морковь, лук репчатый, томат, сметана" name="Борщ “Московский”" price="120.0"/>
+
+    <!-- Основное меню. Салаты -->
+    <dish DishID="140" dishTypeID="14" description="Салат, перец болгарский, помидоры, ананас консервированный, лук-порей, бекон, лосось, креветки, укроп" name="Салат-коктейль с малосольным лососем и креветками" price="370.0"/>
+    <dish DishID="141" dishTypeID="14" description="Салат зеленый, помидоры, огурцы соленые, креветки, мидии, лимон, маслины, майонез, чеснок" name="Салат “Ницца” с креветками и мидиями" price="210.0"/>
+    <dish DishID="142" dishTypeID="14" description="Перепелиные яйца, тунец, салат, помидоры, лук, каперсы, маслины, чеснок, заправка на растительном масле" name="Салат “Нисуаз” с тунцом, томатами и перепелиными яйцами" price="333.0"/>
+    <dish DishID="143" dishTypeID="14" description="Салат, гренки, креветки, сыр “Пармезан”, соус «Цезарь»" name="Салат “Цезарь” с креветками" price="360.0"/>
+    <dish DishID="144" dishTypeID="14" description="Салат, гренки, лосось, сыр “Пармезан”, соус «Цезарь»" name="Салат “Цезарь” с лососем" price="370.0"/>
+    <dish DishID="145" dishTypeID="14" description="Салат, гренки, куриное филе, сыр “Пармезан”, бекон, соус «Цезарь»" name="Салат “Цезарь” с куриным филе" price="250.0"/>
+    <dish DishID="146" dishTypeID="14" description="Креветки, шампиньоны, помидоры, бекон, сыр, картофель, салат, соус со сметаной, майонезом и чесноком, зелень" name="“Демидовский” салат из шампиньонов, сыра, бекона и креветок" price="290.0"/>
+
+    <!-- Основное меню. Гарячие блюда -->
+    <dish DishID="150" dishTypeID="15" description="Филе лосося, филе судака, капуста морская, овощи припущенные, шпинат, сливочный соус, специи, зелень" name="Розочка из судака и лосося с припущенными овощами и сливочным соусом" price="630.0"/>
+    <dish DishID="151" dishTypeID="15" description="Масляная рыба, палтус, лосось, шпинат, рис отварной, лук-порей, специи, лимонный соус" name="Лосось, палтус, масляная рыба, гарнированные рисом со шпинатом и лимонным соусом" price="590.0"/>
+    <dish DishID="152" dishTypeID="15" description="Филе палтуса, картофель шато, соус сливочный со шпинатом, соус томатный со шпинатом, лимон, специи" name="Палтус с картофелем шато и двумя соусами" price="520.0"/>
+    <dish DishID="153" dishTypeID="15" description="Форель радужная, лимон, сельдерей, помидоры, цукини, перец болгарский, арахис, соус" name="Запеченая радужная форель с овощами-гриль и жареным арахисом" price="580.0"/>
+    <dish DishID="154" dishTypeID="15" description="Лосось, сливки 33%, рис, спаржа, зелень, лимон " name="Лосось, припущенный в сливках, с рисом и овощами" price="750.0"/>
+    <dish DishID="155" dishTypeID="15" description="Филе говядины, язык, хлебный крутон,  шампиньоны, картофель запеченый, овощи, специи." name="Филе говядины, запеченное под грибным соусом с картофелем" price="750.0"/>
+    <dish DishID="156" dishTypeID="15" description="Филе говядины, филе свинины, филе куриное, шампиньоны, овощная смесь, зелень, грибной соус, клюква" name="“Ералаш” из говядины, свинины и куриного филе с припущенными овощами и грибным соусом" price="580.0"/>
+
+    <!-- Основное меню. Десерты -->
+    <dish DishID="160" dishTypeID="16" description="Мороженое, хрустящая ореховая тарталетка, сироп, сливки" name="Мороженое в хрустящей ореховой тарталетке" price="210.0"/>
+    <dish DishID="161" dishTypeID="16" description="Корзиночка ореховая, коктейль фруктовый, сливки" name="Ореховая корзиночка с фруктовым коктейлем и взбитыми сливками" price="180.0"/>
+    <dish DishID="162" dishTypeID="16" description="Мороженое, лесные ягоды, сливки" name="Мороженое на горячих лесных ягодах" price="230.0"/>
+    <dish DishID="163" dishTypeID="16" description="Блины, масло сливочное, мед, варенье вишневое" name="Карамелизированные блинчики с вишневым вареньем" price="160.0"/>
+    <dish DishID="164" dishTypeID="16" description="Яблоко, мандарины, виноград" name="Фруктовый коллаж" price="180.0"/>
+
+    <!-- Основное меню. Шеф рекомендует -->
+    <dish DishID="170" dishTypeID="17" description="Лосось, салат пекинский, груша,помидор “Черри”, соевый соус, лапша китайская" name="Салат с грушей и жареной семгой" price="400.0"/>
+    <dish DishID="171" dishTypeID="17" description="Креветки тигровые, специи, лапша, томатный соус, перец чили, зелень" name="Тигровые креветки жареные с рисовой лапшой под острым соусом" price="750.0"/>
+    <dish DishID="172" dishTypeID="17" description="Судак, лосось, масляная рыба, креветки, перец болгарский, баклажаны, цукини, лук-порей, лимон, авокадо, сметана, зелень, соус" name="Шашлык из трёх видов рыбы с тигровыми креветками, овощами гриль и пикантным томатным соусом “Наршарраб”" price="620.0"/>
+    <dish DishID="173" dishTypeID="17" description="Говядина, шампиньоны, ананасы, вино, корнишоны, помидоры, маслины, картофельные бабки, фаршированные шампиньонами" name="Бифштекс “Круглая Башня” - фирменное блюдо" price="790.0"/>
+    <dish DishID="174" dishTypeID="17" description="Баранина, зелень, бальзамик, соевый соус, специи, чеснок, брусничный соус, баклажаны, помидоры, яблоки райские" name="Ребрышки барашка с пряными травами, соусом из брусники, овощами гриль и райским яблочком" price="970.0"/>
+
+</dataset>
